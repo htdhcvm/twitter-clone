@@ -1,0 +1,30 @@
+.search {
+    height: 100%;
+    position: relative;
+
+    &__fields {
+        padding: 20px 20px 20px 50px;
+        border-radius: 30px;
+        background-color: #e6ecf0;
+        border: none;
+        outline: none;
+        height: 50px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+
+        &:focus {
+            background-color: white;
+            border: 1px solid #1da1f2;
+        }
+
+        
+    }
+
+    &__icon {
+        position: absolute;
+        top: 13px;
+        left: 17px;
+        color: #9daab4;
+    }
+}

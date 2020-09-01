@@ -1,0 +1,18 @@
+@import "../../../scss/default.scss";
+
+
+.btnLogIn {
+    color: #1da1f3;
+    background-color: transparent;
+    border: 1px solid #1da1f3;
+    border-radius: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    cursor: pointer;
+    font-family: RobotoBold;
+    outline: none;
+    &:hover {
+        background-color: rgba(29, 161, 242, .1);
+    }
+}

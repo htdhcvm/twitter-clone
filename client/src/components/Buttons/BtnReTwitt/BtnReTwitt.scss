@@ -1,0 +1,11 @@
+.BtnReTwitt {
+    display: flex;
+    cursor: pointer;
+
+    &__icon {
+        font-size: 18px !important;
+    }
+    &__count{
+        padding: 0px 10px;
+    }
+}

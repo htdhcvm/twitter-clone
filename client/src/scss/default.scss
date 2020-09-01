@@ -1,0 +1,24 @@
+@import "./font.scss";
+
+body {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: RobotoRegular;
+}
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    li {
+        list-style: none;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}

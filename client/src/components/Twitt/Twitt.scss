@@ -1,0 +1,51 @@
+.twitt {
+    display: grid;
+    border: 1px solid #e6ecf0;
+    padding: 10px 15px;
+    grid-template-areas: "userimage content";
+    font-size: 15px;
+
+    &__wrapper-title {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    &__separate {
+        color: #6c97bf;
+    }
+
+    &__date {
+        color: #6c97bf;
+    }
+
+    &__text{
+        line-height: 1.3125;
+    }
+
+    &__user-icon {
+        grid-area: userimage;
+        font-size: 49px !important;
+        margin-right: 10px;
+    }
+
+    &__content {
+        grid-area: content;
+        
+    }
+
+    &__image {
+        border-radius: 15px;
+        margin-top: 10px;
+    }
+
+    &__separate {
+        margin: 0px 5px;
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+}

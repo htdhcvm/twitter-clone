@@ -1,0 +1,19 @@
+@import "../../../scss/default.scss";
+
+
+.btnSignUp {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    height: 40px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-family: RobotoBold;
+    outline: none;
+    &:hover {
+        background-color: rgb(26, 145, 218);
+    }
+}

@@ -1,0 +1,22 @@
+
+.notification {
+    grid-template-areas: 
+    ". search search"
+    ". entry offers";
+
+
+    &__wrapper-search{
+        grid-area: search;
+        padding-top: 20px;
+    }
+
+    &__wrapper-entry{
+        grid-area: entry;
+        margin-right: 15px;
+    }
+
+    &__wrapper-offers{
+        grid-area: offers;
+        margin-left: 15px;
+    }   
+}

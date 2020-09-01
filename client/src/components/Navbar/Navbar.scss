@@ -1,0 +1,44 @@
+@import "../../scss/default.scss";
+
+.Navbar {
+    height: 100vh;
+    ul {
+        height: 100vh;
+    }
+    li {
+        display: flex;
+        padding: 10px 0px;
+        height: 60px;
+        font-family: RobotoBold;
+        .menu__logo {
+            color: #1da1f2;
+            svg {
+                font-size: 2.5rem !important;
+                padding: 10px;
+                transition-duration: 0.2s;
+                &:hover {
+                    background-color: rgba(29, 161, 242, .1);
+                    border-radius: 30px;
+                    color: #1da1f2;
+                }
+            }
+        }
+
+        .menu__item {
+            color: black;
+            padding: 10px 20px 10px 10px;
+            display: flex;
+            align-items: center;
+            font-size: 19px;
+            transition-duration: 0.2s;
+            svg { 
+                margin-right: 20px;
+            }
+            &:hover {
+                background-color: rgba(29, 161, 242, .1);
+                border-radius: 30px;
+                color: #1da1f2;
+            }
+        }
+    }
+}

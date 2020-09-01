@@ -1,0 +1,19 @@
+.ButtonTwitt {
+    background-color: rgb(29, 161, 242);
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
+    outline: none;
+    transition-duration: 0.2s;
+    cursor: pointer;
+    padding: 0px 30px;
+    width: 100%;
+    border-radius: 30px;
+    color: white;
+    border: none;
+    min-height: 50px;
+    font-family: RobotoBold;
+    max-width: 230px;    
+
+    &:hover {
+        background-color: rgb(26, 145, 218);
+    }
+}

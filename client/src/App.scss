@@ -1,0 +1,31 @@
+@import "./scss/default.scss";
+
+// .twitter-clone {
+//     display: grid;
+//     grid-template-areas: "menu content";
+//     grid-template-columns: 255px 1fr;
+//     margin: 0 auto;
+//     max-width: 1240px;
+
+//     .menu {
+//         grid-area: menu;
+//     }
+
+//     .home, .notification, .message, .bookmark, .profile {
+//         grid-area: content;
+//     }
+// }
+
+.twitter-clone {
+    max-width: 1240px;
+    margin: 0 auto;
+    .Navbar {
+        position: fixed;
+        width: 255px;
+    }
+    .home, .notification, .message, .bookmark, .profile {
+        display: grid;
+        grid-template-rows: 100px 1fr;
+        grid-template-columns: 255px 600px 350px;
+    }
+}
