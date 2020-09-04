@@ -4,9 +4,12 @@ const express = require("express");
 const router = express.Router();
 
 
-router.post("/getUser", (req, res) => {
-    let { login } = req.user;
-    res.send({login : login})
+router.post("/getLoginAuth", (req, res) => {
+    if(req.user !== undefined) return res.send({ status : true, login : req.user.login});
+    return res.send({
+        status : false,
+        login : undefined
+    })
 });
 
 
