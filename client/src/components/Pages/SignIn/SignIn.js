@@ -1,6 +1,11 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 
 import './SignIn.scss';
+
+
+import {
+    Redirect
+} from "react-router-dom";
 
 
 import LogIn from "../../Buttons/BtnLogIn/BtnLogIn";
@@ -13,9 +18,73 @@ import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import TextField from '@material-ui/core/TextField';
 
-const SignIn = () => {
+const SignIn = ({statusAuth, setStatusAuth, setMenuLogin}) => {
+    const [login, setLogin] = useState("");
+    const [password, setPassword] = useState("");
+    
+    // const [signInStatus, setSignInStatus] = useState(false);
+    
+    const [formToggle, setFormToggle] = useState(false);
+    const [error, setError] = useState("")
+
+
+    const handleToggleForm = (event) => {
+        event.preventDefault();
+        setFormToggle((prev) => !prev);
+    }
+
+    useEffect( () => {
+        const handlerClickMouse = (event) => {
+            if(event.target.classList.value === "SignIn__hidden") setFormToggle(false)
+        }
+
+        document.addEventListener("mousedown", handlerClickMouse);
+
+        return () => {
+            document.removeEventListener("mousedown", handlerClickMouse);
+        }
+
+    }, [formToggle])
+
+
+    useEffect( () => {
+        setInterval(() => {
+            setError("");
+        }, 5000)
+    }, [error])
+
+
+    const handleAuthorization = (event) => {
+        event.preventDefault();
+        if(login.trim().length > 0 && password.trim().length > 0) {
+            return fetch("http://127.0.0.1:8000/authentication/authorization", {
+                method : "POST", 
+                credentials: 'include',
+                headers : {
+                    "Content-Type" : "application/json"
+                },
+                body : JSON.stringify({
+                    login : login,
+                    password : password
+                })
+            }).then( response => {
+                return response.json();
+            }).then( data => {
+                if(!data.status) setError(data.text.message);
+                setMenuLogin( (prev) => prev = login);
+                setStatusAuth( (prev) => data.status);
+                
+            })
+        }
+
+        console.log("Fill fileds");
+    }
     return (
         <section className="SignIn">
+            {formToggle
+                ? <div className="SignIn__hidden"></div>
+                : null}
+            
             <div className="SignIn__left">
                 <svg viewBox="0 0 24 24" className="SignIn__left-icon">
                     <g>
@@ -39,14 +108,23 @@ const SignIn = () => {
                     <TwitterIcon className="SignIn__right-icon-twitter"></TwitterIcon>
                     <h1 className="SignIn__right-title">See what’s happening in the world right now</h1>
                     <form className="SignIn__right-form">
-                        <TextField className="SignIn__right-input-value" id="outlined-basic" label="Phone, email, or username" variant="outlined" />
-                        <TextField className="SignIn__right-input-value" id="outlined-basic" label="Password" variant="outlined" />
-                        <LogIn></LogIn>
+                        <TextField onChange={(e) => setLogin(e.target.value)} className="SignIn__right-input-value" id="outlined-basic" label="Phone, email, or username" variant="outlined" />
+                        <TextField onChange={(e) => setPassword(e.target.value)} className="SignIn__right-input-value" id="outlined-basic" label="Password" variant="outlined" />
+                        <LogIn handleAuthorization={handleAuthorization}></LogIn>
+                        <div className="error"><span>{error}</span></div>
                     </form>
                     <h4>Join Twitter today.</h4>
-                    <SignUp></SignUp>
+                    <SignUp 
+                        formToggle={formToggle}
+                        handleToggleForm={handleToggleForm}    
+                    ></SignUp>
                 </div>
             </div>
+            {
+                statusAuth 
+                    ? <Redirect to="/home" />
+                    : null
+            }
         </section>
     );
 }

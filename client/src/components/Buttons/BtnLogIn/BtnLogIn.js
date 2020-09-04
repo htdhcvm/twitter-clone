@@ -2,9 +2,9 @@ import React from "react";
 
 import './BtnLogIn.scss';
 
-const BtnLogIn = () => {
+const BtnLogIn = ({handleAuthorization}) => {
     return (
-        <button className="btnLogIn">Log in</button>
+        <button onClick={(e)=> handleAuthorization(e)} className="btnLogIn">Log in</button>
     );
 }
 

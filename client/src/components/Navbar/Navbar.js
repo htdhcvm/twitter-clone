@@ -19,18 +19,21 @@ import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 
 
 
-const Navbar = ({login}) => {
+const Navbar = ({handleLogout, login}) => {
+
+    console.log("Navbar")
     return (
         <nav className="Navbar">
+            
             <ul>
-                <ItemMenu Icon={TwitterIcon} path="/user" name="" className="menu__logo"/>
-                <ItemMenu Icon={HomeIcon} path="/user" name="Home" className="menu__item"/>
+                <ItemMenu Icon={TwitterIcon} path="/home" name="" className="menu__logo"/>
+                <ItemMenu Icon={HomeIcon} path="/home" name="Home" className="menu__item"/>
                 <ItemMenu Icon={NotificationsNoneIcon} path="notification" name="Notification" className="menu__item"/>
                 <ItemMenu Icon={MailOutlineIcon} path="messages" name="Messages" className="menu__item"/>
                 <ItemMenu Icon={BookmarkBorderIcon} path="bookmarks" name="Bookmarks" className="menu__item"/>
                 <ItemMenu Icon={PermIdentityIcon} path="profile" name="Profile" className="menu__item"/>
                 <BtnModalTwitt />
-                <BtnDropDownUser login={login}/>
+                <BtnDropDownUser handleLogout={handleLogout} login={login}/>
             </ul>
         </nav>
     );

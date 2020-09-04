@@ -11,7 +11,7 @@ import Trends from "../../Trends/Trends";
 
 import Navbar from "../../Navbar/Navbar";
 
-const Notification = () => {
+const Notification = ({login}) => {
     return (
         <section className="twitter-clone">
             <Navbar></Navbar>
@@ -20,7 +20,7 @@ const Notification = () => {
                     <Search />
                 </section>
                 <section className="notification__wrapper-entry">
-                    <Title text="Notification" />
+                    <Title text="Notification" login={login} />
                     <Twitts />
                 </section>
                 <section className="notification__wrapper-offers">

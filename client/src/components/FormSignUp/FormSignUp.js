@@ -1,4 +1,4 @@
-import React, {useState, useRef, useEffect} from "react";
+import React, {useState, useEffect} from "react";
  
 import {
     Redirect
@@ -19,11 +19,12 @@ function daysArray( count ){
 }
 
 
-const FormSignUp = ({handleFormClose}) => {
+const FormSignUp = () => {
     const [nameLength, setNameLength] = useState(0);
     const [days, setDays] = useState(()=>daysArray(30));
     const [error, setError] =useState("");
     const [registrationStatus, setRegistrationStatus] = useState(false);
+
 
 
     const [login, setLogin] = useState("");
@@ -34,31 +35,11 @@ const FormSignUp = ({handleFormClose}) => {
 
 
 
-
-    const refForm = useRef(null);
-    const refError = useRef(null);
-
     useEffect( () => {
         setTimeout( () => {
             setError("");
         }, 3000)
     }, [error]);
-
-    useEffect( () => {
-        const handlerClickMouse = (event) => {
-            if(refForm.current != null) {
-                if( event.target && !refForm.current.contains(event.target) ) {
-                    if(!event.target.classList.value.includes("MuiButtonBase-root")) {
-                        if(!event.target.className.includes("MuiPopover-root")) {
-                            handleFormClose();
-                        }
-                    }
-                }
-            }
-        }
-
-        document.addEventListener("mousedown", handlerClickMouse);
-    }, [refForm])
 
     const handleDayBirthday = (name, value) => {
         switch(name) {
@@ -141,7 +122,7 @@ const FormSignUp = ({handleFormClose}) => {
 
 
     return(
-        <form ref={refForm} className="sign-in">
+        <form className="sign-in">
             <TwitterIcon className="sign-in__icon-twitter"></TwitterIcon>
             <h2 className="sign-in__title">Create your account</h2>
             <div className="form-group">
@@ -187,7 +168,7 @@ const FormSignUp = ({handleFormClose}) => {
                 }
                 
             }} className="sign-in__button">Sign in</button>
-            <div ref={refError} className="error"><span>{error}</span></div>
+            <div className="error"><span>{error}</span></div>
             {
                 registrationStatus 
                     ? <Redirect to="/user" />

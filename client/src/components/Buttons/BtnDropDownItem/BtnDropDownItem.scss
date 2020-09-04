@@ -1,0 +1,8 @@
+.item { 
+    cursor: pointer;
+    padding: 10px 20px;
+    transition-duration: 0.2s;
+    &:hover {
+        background-color: rgba(29, 161, 242, .1);
+    }
+}

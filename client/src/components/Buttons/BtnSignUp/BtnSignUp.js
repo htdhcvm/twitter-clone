@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 
 import FormSignUp from "../../FormSignUp/FormSignUp";
 
@@ -6,20 +6,13 @@ import './BtnSignUp.scss';
 
 
 
-const BtnSignUp = () => {
-    const [formToggle, setFormToggle] = useState(false);
+const BtnSignUp = ({formToggle, handleToggleForm}) => {
 
-    const handleFormClose = () => {
-        setFormToggle( prev => !prev);
-    }
-    
     return (
         <>
-            <button onClick={() =>{
-                if(!formToggle) setFormToggle( prev => !prev);
-            }} className="btnSignUp">Sign up</button>
-            { formToggle
-                ? <div className="wrapper-form"><FormSignUp handleFormClose={handleFormClose} /></div>
+            <button onClick={(e)=>handleToggleForm(e)} className="btnSignUp">Sign up</button>
+            {formToggle
+                ? <div className="SignIn__right__wrapper-form"><FormSignUp /></div>
                 : null}
         </>
     );
